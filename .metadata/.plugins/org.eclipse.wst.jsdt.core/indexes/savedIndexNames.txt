@@ -1,0 +1,13 @@
+INDEX VERSION 1.4+D:\estudos\3semestre\topicos1\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2948001093.index
+949794758.index
+4110641705.index
+2190396232.index
+1234421789.index
+1049950347.index
+326303275.index
+2412645482.index
+2648657557.index
+3151244657.index
+3500557860.index
+1708614695.index

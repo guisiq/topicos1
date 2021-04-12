@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://xmlns.jcp.org/jsf/core"
+		xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<title>reclamacao!</title>
+	 <h:outputStylesheet library = "css" name="form.css" /> 
+	
+</h:head>
+<h:body>
+	<h:form >
+		<fieldset>
+		
+			<legend > Cadastro: </legend>
+			<h:messages style="color:red;margin:8px;" />
+				<DIV class = "campo_form">
+					<LABEL for="nome"> nome: </LABEL>
+					<h:inputText 
+						id = "nome" 		
+						required="true" 
+						value="#{alunosController.aluno.nome}"
+						label="nome"/>
+					<LABEL for="email">@email:</LABEL>
+					<h:inputText 
+						id="email" 		
+						value="#{alunosController.aluno.email}"
+						label="nome">
+					</h:inputText>
+					<LABEL for=" telefone ">telefone:</LABEL>
+					<h:inputText 
+						id="telefone" 		
+						required="true" 
+						value="#{alunosController.aluno.telefone}"
+						label="telefone">
+					</h:inputText>
+					<LABEL for=" semestre">semestre:</LABEL>
+					<h:selectOneMenu 
+						id="semestre" 
+	                    value="#{alunosController.aluno.semestre}" 
+	                    required="true"
+	                    >
+	                    <f:selectItem itemValue="2018.1" itemLabel="2018.1" />
+	                    <f:selectItem itemValue="2018.2" itemLabel="2018.2" />
+	                    <f:selectItem itemValue="2019.1" itemLabel="2019.1" />
+	                    <f:selectItem itemValue="2019.2" itemLabel="2019.2" />
+	                    <f:selectItem itemValue="2020.1" itemLabel="2020.1" />
+	                    <f:selectItem itemValue="2020.2" itemLabel="2020.2" />
+	                </h:selectOneMenu>
+	                <LABEL for=" curso ">Curso:</LABEL>
+					<h:selectOneMenu value="#{alunosController.aluno.curso}">
+						<f:selectItems value="#{alunosController.listaCurso}"
+									   id="curso"
+									   var="obj" 
+									   itemLabel="#{obj.label}"/>
+					</h:selectOneMenu>
+					
+				<LABEL for=" semestre">Periodo:</LABEL>
+					<h:selectOneMenu 
+						id="periodo" 
+	                    value="#{alunosController.aluno.periodo}" 
+	                    required="true"
+	                    >
+                    	<f:selectItem itemValue="#{1}" itemLabel="1" />
+	                    <f:selectItem itemValue="#{2}"  itemLabel="2" />
+	                    <f:selectItem itemValue="#{3}" itemLabel="3" />
+	                    <f:selectItem itemValue="#{4}" itemLabel="4" />
+	                    <f:selectItem itemValue="#{5}" itemLabel="5" />
+	                    <f:selectItem itemValue="#{6}" itemLabel="6" />
+	                </h:selectOneMenu>
+					
+	
+				
+				
+			</DIV>
+			
+			<DIV class = "botoes" >
+			
+				<h:commandButton 
+					disabled="#{alunosController.aluno.id != null}"
+					value="incluir" 
+					class = " button"  >
+					<f:ajax listener="#{alunosController.incluir}" execute="@all" render="@all" event="click"/>
+				</h:commandButton>
+									
+				<h:commandButton 
+					disabled="#{alunosController.aluno.id == null}"					
+					value="alterar" 
+					class = " button"
+					actionListener = "#{alunosController.alterar}">
+					<f:ajax  execute="@all" render="@all" event="click"/>
+				</h:commandButton>	
+				
+				<h:commandButton 
+					disabled="#{alunosController.aluno.id == null}"
+					value="excluir" 
+					class = " button"
+					actionListener = "#{alunosController.excluir(alunosController.aluno)}">
+					<f:ajax listener="#{alunosController.excluir(alunosController.aluno)}" execute="@this" render="@all" event="click"/>
+				</h:commandButton>
+
+
+				<h:commandButton 
+					disabled="#{alunosController.aluno.id != null}"
+					value="limpar" 
+					class = " button" >
+					<f:ajax listener="#{alunosController.limpar}" execute="@this" render="@all" event="click"/>
+				</h:commandButton>
+				
+				
+			</DIV>
+
+		</fieldset>
+
+	</h:form>
+	
+	<h:form>	
+		<h:dataTable 
+				value="#{alunosController.listaAluno}"
+				var="obj">
+				<h:column>
+					<f:facet name="header">Id</f:facet>
+					<h:outputLabel value="#{obj.id}" />
+				</h:column>
+	
+				<h:column>
+					<f:facet name="header">nome</f:facet>
+					<h:outputLabel value="#{obj.nome}" />
+				</h:column>			
+				
+				<h:column>
+					<f:facet name="header">email</f:facet>
+					<h:outputLabel value="#{obj.email}" />
+				</h:column>
+			
+				<h:column>
+					<f:facet name="header">semestre</f:facet>
+					<h:outputLabel value="#{obj.semestre}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">curso:</f:facet>
+					<h:outputLabel value="#{obj.curso.label}" />
+				</h:column>
+				
+				
+				<h:column>
+					<f:facet name="header">periodo</f:facet>
+					<h:outputLabel value="#{obj.periodo}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">telefone</f:facet>
+					<h:outputLabel value="#{obj.telefone}" />
+					
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Ação</f:facet>
+					<h:commandButton 
+						value="Editar"
+						actionListener="#{alunosController.alterar(obj)}">
+						<f:ajax  execute="@all" render="@all" event="click"/>
+					</h:commandButton>	
+					
+					<h:commandButton value="Excluir"
+						actionListener="#{alunosController.excluir(obj)}">
+					<f:ajax  execute="@this" render="@form" event="click"/>
+				</h:commandButton>	
+				
+						
+				</h:column>	
+			</h:dataTable>
+			</h:form>	
+	
+</h:body>
+</html>

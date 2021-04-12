@@ -1,0 +1,44 @@
+@charset "ISO-8859-1";
+
+form{
+	font-size: large;
+}
+fieldset{
+	background-color: #00ffff47;
+	padding: 10px;
+	margin:0px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+}
+
+div.campos_form{
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    width:100%
+}
+div.campo_form{
+    padding: 5px;
+	display: flex;
+	width:80%;
+	
+}
+input,textarea{
+	
+	border-radius: 10px;
+	width: 30%;
+	max-width: 400px;
+	padding :2px;
+	/*float:right;*/
+}
+
+label{
+	width: 30%;
+	text-align:end;
+	padding :2px;
+   /* float:left*/
+}
+
+
