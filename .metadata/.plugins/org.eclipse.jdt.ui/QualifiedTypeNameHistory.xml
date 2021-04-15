@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="br.unitins.CRUD_escola.model.Curso"/>
+    <fullyQualifiedTypeName name="br.unitins.CRUD_levraria.model.Usuario"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
 </qualifiedTypeNameHistroy>

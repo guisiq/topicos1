@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://xmlns.jcp.org/jsf/core"
+		xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<title> login </title>
+<!-- 	 <h:outputStylesheet name="css/reclamacao.css" /> -->
+<!-- 	 <h:outputStylesheet library = "css" name="reclamacao.css" />  -->
+	
+</h:head>
+<h:body>
+	<h:form id="tete1">
+		<fieldset>
+			<legend > Cadastro: </legend>
+			<DIV class ="campos_form">
+				<DIV class = "campo_form">
+					<LABEL for="nome"> nome: </LABEL>
+					<h:inputText 
+						id = "nome" 		
+						required="true" 
+						label="nome"/>
+				</DIV>
+	
+				<DIV class = "campo_form">
+					<LABEL for="email">@email:</LABEL>
+					<h:inputText 
+						id="email" 		
+						required="true" 
+						label="nome">
+					
+					</h:inputText>
+				</DIV>
+				
+					<!-- pesquisar para que serve o atributo rows e cols   -->
+				<DIV class = "campo_form">
+					<LABEL for="reclamacao">reclamacao:</LABEL>
+					<h:inputTextarea 
+						id = "reclamacao"
+						rows="5"
+						cols="30"></h:inputTextarea>
+				</DIV>
+				</DIV>
+			
+			<h:commandButton 
+				value="enviar " 
+				class = " button" />
+
+		</fieldset>
+
+
+
+	</h:form>
+</h:body>
+</html>
