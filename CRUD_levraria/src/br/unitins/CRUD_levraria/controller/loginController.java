@@ -1,31 +1,31 @@
 package br.unitins.CRUD_levraria.controller;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import br.unitins.CRUD_levraria.model.Usuario;
+import br.unitins.CRUD_levraria.model.Produto;
 
 
 @Named
 @RequestScoped
 public class LoginController {
-	Usuario usuario;
+	Produto usuario;
 	
 	public String entrar() {
 		
-		if(Usuario.listaUsuarios.contains(usuario)) {			
-			return "estoque.xhtml?faces-redirect=true";
+		if(Produto.listaUsuarios.contains(usuario)) {			
+			return "menu.xhtml?faces-redirect=true";
 		}
 		return null;
 		
 		
 	}
-	public Usuario getUsuario() {
+	public Produto getUsuario() {
 		if (usuario == null) {
-			usuario = new Usuario();
+			usuario = new Produto();
 		}
 		return usuario;
 	}
 
-	public void setUsuario(Usuario usuario) {
+	public void setUsuario(Produto usuario) {
 		this.usuario = usuario;
 	}
 }

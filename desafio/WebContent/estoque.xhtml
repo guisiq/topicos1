@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<title>Cadastro de produto</title>
+	 <h:outputStylesheet library = "css" name="form.css" /> 
+</h:head>
+<h:body>
+	<h:form >
+		<fieldset>
+		
+			<legend > Cadastro produto: </legend>
+				
+				<DIV class = "campo_form">
+					<LABEL for="nome"> nome: </LABEL>
+					<h:inputText 
+						id = "nome" 		
+						required="true" 
+						value = "#{estoqueController.produto.nome}"
+						label="nome"/>
+					<LABEL for="preco">preco:</LABEL>
+					<h:inputText
+						id="preco" 		
+						value="#{estoqueController.produto.preco}"
+						label="preco">
+					</h:inputText>
+					<LABEL for="codigo">codico:</LABEL>
+					<h:inputText 
+						id="codigo" 		
+						required="true" 
+						value="#{estoqueController.produto.codigo}"
+						label="codigo">
+					</h:inputText>
+					<LABEL for="quantEstoq">quantidade estoque:</LABEL>
+					<h:inputText 
+						id="quantEstoq" 		
+						required="true" 
+						value="#{estoqueController.produto.quantEstoque}"
+						label="quantEstoq">
+					</h:inputText>
+					<LABEL for="dataFabricacao">data de fabricacao:</LABEL>
+					<h:inputText 
+						id="dataFabricacao" 		
+						required="true" 
+						value="#{estoqueController.produto.dataFabricacao}"
+						label="dataFabricacao">
+					</h:inputText>
+					<LABEL for="dataVencimento">data de vencimento:</LABEL>
+					<h:inputText 
+						id="dataVencimento" 		
+						required="true" 
+						value="#{estoqueController.produto.dataVencimento}"
+						label="dataVencimento">
+					</h:inputText>
+					
+					
+					<DIV>
+						<LABEL for="">tipo peso</LABEL>
+						<h:selectOneRadio>
+	                		<f:selectItems value="#{estoqueController.listPeso}"
+									   id="tipoPeso"
+									   var="obj" 
+									   itemLabel="#{obj.name()}"/>				
+					
+						</h:selectOneRadio>
+						<LABEL for="Valor">valor:</LABEL>
+						<h:inputText 
+							id="Valor" 		
+							value="#{estoqueController.produto.peso.valor}"
+							label="Valor">
+						</h:inputText>
+				
+					</DIV>
+														
+			</DIV>
+
+			
+			<DIV class = "botoes" >
+			
+				<h:commandButton 
+					value="incluir" 
+					class = " button"  
+					actionListener ="#{estoqueController.incluir}" > 
+				</h:commandButton>
+									
+				<h:commandButton 					
+					value="alterar" 
+					class = " button"
+					actionListener = "#{estoqueController.alterar}">
+					<f:ajax  execute="@all" render="@all" event="click"/>
+				</h:commandButton>	
+				
+				<h:commandButton 
+					value="excluir" 
+					class = " button"
+					actionListener = "#{estoqueController.excluir(estoqueController.produto )}">
+					<f:ajax execute ="@this" render="@all" event="click"/>
+				</h:commandButton>
+
+
+				<h:commandButton 
+					value="limpar" 
+					class = " button" >
+					<f:ajax listener="#{estoqueController.limpar}" execute="@this" render="@all" event="click"/>
+				</h:commandButton>
+				
+				
+			</DIV>
+			<h:dataTable 
+				value="#{alunosController.listaProduto}"
+				var="obj">
+	
+				<h:column>
+					<f:facet name="header">nome</f:facet>
+					<h:outputLabel value="#{obj.nome}" />
+				</h:column>			
+				
+				<h:column>
+					<f:facet name="header">preco</f:facet>
+					<h:outputLabel value="#{obj.preco}" />
+				</h:column>
+			
+				<h:column>
+					<f:facet name="header">codico</f:facet>
+					<h:outputLabel value="#{obj.codigo}" />
+				</h:column>
+			</h:dataTable>
+			
+		</fieldset>
+
+	</h:form>
+	
+</h:body>
+</html>

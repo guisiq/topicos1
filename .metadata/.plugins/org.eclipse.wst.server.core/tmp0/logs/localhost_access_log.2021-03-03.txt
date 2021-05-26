@@ -1,7 +1,0 @@
-127.0.0.1 - - [03/Mar/2021:21:53:35 -0300] "GET / HTTP/1.1" 404 763
-0:0:0:0:0:0:0:1 - - [03/Mar/2021:21:54:49 -0300] "GET /form_reclamacao/faces/reclamacao.xhtml HTTP/1.1" 200 1422
-0:0:0:0:0:0:0:1 - - [03/Mar/2021:21:54:50 -0300] "GET /form_reclamacao/faces/javax.faces.resource/reclamacao.css?ln=css HTTP/1.1" 200 604
-0:0:0:0:0:0:0:1 - - [03/Mar/2021:21:54:51 -0300] "GET /favicon.ico HTTP/1.1" 404 774
-0:0:0:0:0:0:0:1 - - [03/Mar/2021:21:56:46 -0300] "GET /form_reclamacao/faces/reclamacao.xhtml HTTP/1.1" 200 1423
-0:0:0:0:0:0:0:1 - - [03/Mar/2021:21:57:15 -0300] "GET /form_reclamacao/faces/reclamacao.xhtml HTTP/1.1" 200 1422
-0:0:0:0:0:0:0:1 - - [03/Mar/2021:21:57:16 -0300] "GET /form_reclamacao/faces/javax.faces.resource/reclamacao.css?ln=css HTTP/1.1" 200 604

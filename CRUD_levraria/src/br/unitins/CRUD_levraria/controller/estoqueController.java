@@ -8,7 +8,6 @@ public class estoqueController {
 	Livro livro ;
 	List<Livro> llisvros ;
 
-	
 	public Livro getLivro() {
 		return livro;
 	}
